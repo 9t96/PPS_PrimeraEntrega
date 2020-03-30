@@ -1,0 +1,7 @@
+{
+  "name": "PPS_PrimeraEntrega",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
