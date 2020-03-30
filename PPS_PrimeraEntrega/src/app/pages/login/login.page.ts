@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+import {AuthServiceService} from '../../services/auth-service.service'
 
 
 class User{
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
 
   user: User;
 
-  constructor(private fbAuth: FirebaseAuthentication) { 
+  constructor(private authService: AuthServiceService) { 
     this.user = new User();
   }
 
@@ -25,12 +25,11 @@ export class LoginPage implements OnInit {
 
 
   Login(){
-
-
-
-    this.fbAuth.signInWithEmailAndPassword(this.user.email, this.user.password)
-    .then(res =>{
+    this.authService.SignIn(this.user.email, this.user.password).then( res =>{
       console.log(res);
+    })
+    .catch( err =>{
+      console.log(err);
     })
   }
 
