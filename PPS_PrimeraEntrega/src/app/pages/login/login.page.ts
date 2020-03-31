@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthServiceService} from '../../services/auth-service.service'
+import { Router } from '@angular/router';
 
 
 class User{
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
 
   user: User;
 
-  constructor(private authService: AuthServiceService) { 
+  constructor(private authService: AuthServiceService, private router: Router) { 
     this.user = new User();
   }
 
@@ -26,11 +27,16 @@ export class LoginPage implements OnInit {
 
   Login(){
     this.authService.SignIn(this.user.email, this.user.password).then( res =>{
-      console.log(res);
+      this.router.navigate(['tabs']);
     })
     .catch( err =>{
       console.log(err);
     })
+  }
+
+  testUser(){
+    this.user.email = 'admin@admin.com'
+    this.user.password = 'admin666'
   }
 
 }
