@@ -34,9 +34,18 @@ export class LoginPage implements OnInit {
     })
   }
 
-  testUser(){
-    this.user.email = 'admin@admin.com'
-    this.user.password = 'admin666'
+  testUser(accountNumber: number){
+    switch (accountNumber) {
+      case 1:
+        this.user.email = 'admin@admin.com'
+        this.user.password = 'admin666'
+        break;
+      case 2:
+        this.user.email = 'prueba2@admin.com'
+        this.user.password = 'admin666'
+        break;
+    }
+    
   }
 
 }

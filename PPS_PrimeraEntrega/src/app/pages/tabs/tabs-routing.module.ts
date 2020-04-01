@@ -9,16 +9,6 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'auth',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../login/login.module').then(m => m.LoginPageModule)
-          }
-        ]
-      },      
-      {
         path: 'tab1',
         children: [
           {
@@ -56,8 +46,18 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'auth',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../login/login.module').then(m => m.LoginPageModule)
+      }
+    ]
+  },      
+  {
     path: '',
-    redirectTo: '/tabs/auth',
+    redirectTo: '/auth',
     pathMatch: 'full'
   }
 ];
