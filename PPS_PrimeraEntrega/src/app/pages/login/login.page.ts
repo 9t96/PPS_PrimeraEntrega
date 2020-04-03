@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(this.user.email, this.user.password).then( res =>{
       this.router.navigate(['tabs']);
     })
-    .catch( err =>{
+    .catch( err =>{ 
       console.log(err);
     })
   }
